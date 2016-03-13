@@ -24,8 +24,8 @@ micro controller.*/
 void loop()
 {
 	digitalWrite(13, HIGH);		//Turns the LED on PIN 13 on (HIGH is the voltage level 5V?)
-	delay(1000);				//The routine holds for 1000ms or 1s before executing the next line of code.
+	delay(1000);			//The routine holds for 1000ms or 1s before executing the next line of code.
 	digitalWrite(13, LOW);		//Turns the LED on PIN 13 off (LOW is the removal of voltage 0V?)
-	delay(1000);				//The routine holds for another 1000ms or 1s before executing the first line of code in "Loop" again.
+	delay(1000);			//The routine holds for another 1000ms or 1s before executing the first line of code in "Loop" again.
   /* add main program code here */
 }

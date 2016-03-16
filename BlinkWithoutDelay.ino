@@ -53,6 +53,7 @@ void loop()
 		{
 			LED_State = LOW;
 		}
+		digitalWrite(LED_Pin, LED_State); //Turns the output for LED_Pin ON or OFF (HIGH/LOW).
 	}
 	//Other code needing to excute each scan while LED blinks goes here.
 }

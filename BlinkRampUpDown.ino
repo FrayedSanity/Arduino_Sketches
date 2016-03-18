@@ -14,7 +14,6 @@ int freqMin = 0; //defines the minimum frequency in ms.
 int freqMax = 2000; //defines the maximum frequency in ms.
 int Pin = 13; //defines the pin the LED will be connected to
 bool minReached = false; //trigger for min freq reached.
-int LedState = LOW; //Definies the initial state of the LED HIGH/LOW (on or off) 
 
 void setup()
 {
@@ -27,18 +26,10 @@ void setup()
 
 void loop()
 {
-	//Determines current LED state and sets to opposite then writes the output
-	//to the PIN and delays by the defined frequency
-
-	if (LedState == LOW)
-	{
-		LedState = HIGH;
-	}
-	else
-	{
-		LedState = LOW;
-	}
-	digitalWrite(Pin, LedState);
+	//One period is defined as the LED going from HIGH to LOW back to High.	
+	digitalWrite(Pin, HIGH);
+	delay(freq);
+	digitalWrite(Pin, LOW);
 	delay(freq);
 
 	//Determines if the current frequency is less or equal to Minimum frequency

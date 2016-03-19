@@ -10,10 +10,12 @@ of times.
 Developer: Wes Urbat
 Modified Date: 03.18.16*/
 
+//Preprocessor or Precompiler directives
+//These directives are very powerful when trying to save memory when its limited
+#define ledPin 13 //Prior to the compiler running the word "pin" will be replaced 13
+#define freq 500 //Prior to the compiler running the word "freq" will be replaced with 500
 
 //Declare and assign intial values to global variables
-int pin = 13; //Pin 13 is assoicated with the built-in LED.
-int freq = 500; //defines the LED flash frequency
 int i = 0; //iteration variable
 int itrMax = 5; //Max interations
 int LEDstate = LOW; //initial LED state on or off (HIGH/LOW)
@@ -31,7 +33,7 @@ void setup()
 {
 
 	/* Initialize hardware */
-	pinMode(pin, OUTPUT); //Defines the specified PIN as an OUTPUT.
+	pinMode(ledPin, OUTPUT); //Defines the specified PIN as an OUTPUT.
 	Serial.begin(9600); //Opens the serial commuincation at a baud rate of 9600bps bits per second.
 
 }
@@ -72,6 +74,8 @@ void loop()
 			Serial.println("Method 1 \"if\" begins...");
 			firstPrint = false;
 		}
+		//If statement loops can be very useful when trying to eliminate potential for
+		//unintended input scanning or output writing response delays.
 		if (i < itrMax && currentTime >= previousTime + freq)
 		{
 			if (LEDstate == LOW)
@@ -82,7 +86,7 @@ void loop()
 			{
 				LEDstate = LOW;
 			}
-			digitalWrite(pin, LEDstate);
+			digitalWrite(ledPin, LEDstate);
 			previousTime = currentTime;
 			oneCycle++;
 			if (oneCycle >= 2)
@@ -118,6 +122,9 @@ void loop()
 				Serial.println("Method 2 \"for\" begins..."); //note the use of string "" and " within the string using a \ character.
 				firstPrint = false;
 			}
+			//Any monitoring of inputs or writing of outputs must be programmed within each while loop.
+			//Not putting such code inside these loops will result in response time delays in magnitude
+			//of the duration it takes to execute the full loop.
 			for (;i < itrMax;) //Notice only comparision expression present.
 			{
 				for (oneCycle = 0; oneCycle < 2;)
@@ -133,7 +140,7 @@ void loop()
 						{
 							LEDstate = LOW;
 						}
-						digitalWrite(pin, LEDstate);
+						digitalWrite(ledPin, LEDstate);
 						previousTime = currentTime;
 						oneCycle++;
 					}
@@ -156,7 +163,10 @@ void loop()
 		{
 			Serial.println("Method 3 \"while\" begins..."); //note the use of string "" and " within the string using a \ character.
 			firstPrint = false;
-		} 
+		}
+		//Any monitoring of inputs or writing of outputs must be programmed within each while loop.
+		//Not putting such code inside these loops will result in response time delays in magnitude
+		//of the duration it takes to execute the full loop.
 		while (i < 5)
 		{
 			while(oneCycle < 2)
@@ -172,7 +182,7 @@ void loop()
 					{
 						LEDstate = LOW;
 					}
-					digitalWrite(pin, LEDstate);
+					digitalWrite(ledPin, LEDstate);
 					previousTime = currentTime;
 					oneCycle++;
 				}
@@ -181,6 +191,12 @@ void loop()
 			Serial.println(i);
 			oneCycle = 0;
 		}
+		meth1Comp = false;
+		meth2Comp = false;
+		firstPrint = true;
+		i = 0;
+		delay(freq * 5); //Delay the restart of the whole loop function
+				 //Cause all input scanning and code execution to pause.
 	}
 }
 	

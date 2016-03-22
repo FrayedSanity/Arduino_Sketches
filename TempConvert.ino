@@ -18,5 +18,18 @@ void loop()
 {
 
   /* Empty, no continuous code. */
-
+  
+  // TBD -- Project
+  // 1. Ask user for temperature in C 
+  // 2. Read user input from console (serial)
+  // 3. Ensure the value is numeric.
+  // 	3a. Go to 4. if numeric.
+  //	3b. Inform user that the value entered was not numeric, Go to step 1.
+  // 4. Preform conversion as shown in setup and ask user to enter a new temperature in C.
+  // 5. Go to step 2.
+  
+  // see if you can do this above.  i will also do it and we can compair results and implementation.
+  // Accept Challenge 	[ ]
+  // Decline Challenge	[ ]
+ 
 }

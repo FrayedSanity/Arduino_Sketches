@@ -29,7 +29,7 @@ void loop()
   // 5. Go to step 2.
   
   // see if you can do this above.  i will also do it and we can compair results and implementation.
-  // Accept Challenge 	[ ]
+  // Accept Challenge 	[X]
   // Decline Challenge	[ ]
  
 }
